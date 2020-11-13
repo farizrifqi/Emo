@@ -1,12 +1,10 @@
-*{
-	box-sizing: inherit;
-}
 body{
-	font-family: arial;
+	font-family: 'Source Sans Pro';
 	background-color: #ecf0f1;
 	height: 100%;
     margin: 0;
     padding: 0;
+	letter-spacing: 0.1em;
 }
 a{
 	text-decoration: none;
@@ -15,9 +13,16 @@ nav{
 	width:100%;
 	padding:15px;
 	position:fixed;
+	-webkit-box-shadow: 0px -37px 78px -1px rgba(0,0,0,0.37);
+	-moz-box-shadow: 0px -37px 78px -1px rgba(0,0,0,0.37);
+	box-shadow: 0px -37px 78px -1px rgba(0,0,0,0.37);
+}
+footer{
+	
 }
 #header{
 	padding: 10% 0px 0px 5%;
+	height:300px;
 	color: white;
 }
 .title-left{
@@ -58,17 +63,21 @@ nav{
 	background:white;
 	padding: 10px;
 }
-.title{
-	font-size:90px;
-	padding: 0px;
+.header-title{
+	font-size:60px;
+	padding: 10px;
 	margin: 0px;
 	font-weight: bold;
+	letter-spacing: 3px;
 }
 .subtitle{
 	font-size:20px;
 	padding: 0px;
-	margin: 5px;
+	margin: 0 0 0 15px;
 }
 .primary{
 	background: #f1c40f;
+}
+.title{
+	text-align:center;
 }
