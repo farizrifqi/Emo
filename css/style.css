@@ -31,6 +31,13 @@ footer{
 	text-align:center;
 	font-size:15px;
 }
+input[type="text"], input[type="password"]{
+	padding:10px;
+	border:1px solid #bdc3c7;
+	border-radius:4px;
+	margin-top:5px;
+	width:300px;
+}
 #header{
 	padding: 10% 5% 10% 5%;
 	color: white;
@@ -119,4 +126,6 @@ footer{
   flex: 50%;
   padding: 10px;
 }
-
+.centered{
+	text-align:center;
+}
