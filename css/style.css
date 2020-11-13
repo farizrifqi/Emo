@@ -14,6 +14,7 @@ body{
 }
 a{
 	text-decoration: none;
+	color: #3498db;
 }
 a:active{
 	text-decoration: none;
@@ -41,6 +42,7 @@ footer{
 footer a{
 	color:white;
 	font-weight:bold;
+	padding: 0px 10px;
 }
 textarea{
 	height:100px;
@@ -49,6 +51,30 @@ hr{
 	border-top: 1px solid #ecf0f1;
 	width:60%;
 }
+input[type=date], input[type=submit], button{
+	cursor:hand;
+}
+#header{
+	padding: 10% 5% 10% 5%;
+	color: white;
+}
+#contact{
+	color:#2f2f2f;
+	background: #white;
+}
+#join{
+	text-align:center;
+}
+.footer-login{
+	position:absolute; 
+	margin-top:45%; 
+	background:none;
+	color:black; 
+	width: 100%
+}
+.footer-login a{
+	color:black;
+}
 .input-text{
 	padding:10px;
 	border:1px solid #bdc3c7;
@@ -56,20 +82,14 @@ hr{
 	margin-top:5px;
 	width:300px;
 }
-input[type=date]{
-	cursor:hand;
-}
-
-#header{
-	padding: 10% 5% 10% 5%;
-	color: white;
-}
-#contact{
-	color:white;
-	background: #34495e;
-}
-#join{
-	text-align:center;
+.box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-10%; 
+  margin-left:-10%;
+  background:white;
+  padding:15px;
 }
 .daftar{
 	border: 1.5px solid #34495e;
@@ -126,7 +146,7 @@ border: 1px solid #ecf0f1;
 	padding: 20px 100px;
 }
 .header-title{
-	font-size:60px;
+	font-size:56px;
 	padding: 10px;
 	margin: 0px;
 	font-weight: bold;
@@ -157,4 +177,17 @@ border: 1px solid #ecf0f1;
 }
 .bigger{
 	font-size: 50px;
+}
+.btn{
+	padding: 8px;
+	width:auto;
+	font-size:15px;
+	border: none;
+	color:white;
+}
+.btn-masuk{
+	background: #3498db;
+}
+.btn-fp{
+	background: #e74c3c;
 }
