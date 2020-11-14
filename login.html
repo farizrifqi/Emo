@@ -3,19 +3,19 @@
 	<!-- Meta -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Daftar - Emo</title>
+	<title>Login - Emo</title>
 	<link href="css/style.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
 </head>
 <body>
 	<div class="box">
-	<form>
+	
 		<label for="email">Email</label><br/>
-		<input type="text" name="email" class="input-text" placeholder="Login email" required><br/><br/>
+		<input type="text" id="login-email" name="email" class="input-text" placeholder="Login email" required><br/><br/>
 		<label for="password">Password</label><br/>
-		<input type="password" name="password" class="input-text" placeholder="Login password" required><br/></br>
-		<input type="submit" class="btn btn-masuk" value="Login"/> 
-	</form>
+		<input type="password" id="login-pass" name="password" class="input-text" autocomplete="off" placeholder="Login password" required><br/></br>
+		<input type="submit" class="btn btn-masuk" onclick="login();" autocomplete="off" value="Login"/> 
+	
 	<a href="#"><button class="btn btn-fp" value="Lupa password">Lupa password</button></a>
 	<p>Belum punya akun? <a href="daftar.html">Daftar</a> yuk!</p>
 	</div>

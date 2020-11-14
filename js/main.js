@@ -1,8 +1,7 @@
 var dateskrg = new Date();
-document.getElementById("tgllahir").value = dateskrg.getFullYear()+"-"+dateskrg.getMonth()+"-"+dateskrg.getDate();
 var p = document.getElementById("password");
 var rp = document.getElementById("repassword");
-
+document.getElementById("tgllahir").value = dateskrg.getFullYear()+"-"+dateskrg.getMonth()+"-"+dateskrg.getDate();
 var check = function(){
 				var oke = false;
 				if (p.value === "" || rp.value === ""){
@@ -33,5 +32,26 @@ var check = function(){
 				}else{
 					document.getElementById("daftarakun").disabled=true;
 				}
-			}	
-	
+			}
+function login(){
+	if (document.getElementById("login-email").value == "user@user.com" && document.getElementById("login-pass").value == "a12345"){
+		alert("Username atau password bener");
+		window.location = "dashboard.html";
+	}else{
+		alert("Username atau password salah");
+		console.log(document.getElementById("login-email").value);
+	}
+}
+function switchPage(p){
+	switch(p){
+		case "aset":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/aset.html" ></object>';
+		break;
+		case "transaksi":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/transaksi.html" ></object>';
+		break;
+		default:
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/beranda.html" ></object>';
+		break;
+	}
+}
