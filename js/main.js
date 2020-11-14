@@ -50,8 +50,12 @@ function switchPage(p){
 		case "transaksi":
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/transaksi.html" ></object>';
 		break;
+		case "deposit":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/deposit.html" ></object>';
+		break;
 		default:
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/beranda.html" ></object>';
 		break;
 	}
 }
+
