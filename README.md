@@ -1,6 +1,7 @@
 # Emo
 Project Emo: Savings and Invest
-
+#
+[Entity Relationship Diagram](https://app.creately.com/diagram/PwMFeZiWOtY/view)
 ## Developer ##
   - Agastian Rizki (19523208)
   - Fariz Rifqi (19523125)
