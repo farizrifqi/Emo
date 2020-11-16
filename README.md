@@ -3,10 +3,10 @@ Project Emo: Savings and Invest
 # ERD
 [Entity Relationship Diagram](https://app.creately.com/diagram/PwMFeZiWOtY/view)
 # Helpers
-	- [Stackoverflow](http://stackoverflow.com/)
-	- [W3Schools](http://w3schools.com/)
-	- [CSS Box Generator](https://www.cssmatic.com/box-shadow)
-	- [Flat UI Color Palette](https://flatuicolors.com/)
+[Stackoverflow](http://stackoverflow.com/)
+[W3Schools](http://w3schools.com/)
+[CSS Box Generator](https://www.cssmatic.com/box-shadow)
+[Flat UI Color Palette](https://flatuicolors.com/)
 ## Developer ##
   - Agastian Rizki (19523208)
   - Fariz Rifqi (19523125)
