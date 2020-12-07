@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
 <h1 class="page-title">• Deposit</h1>
 <div class="widget">
-<u><b>Informasi:</b></u>
+<u><b>Informasia:</b></u>
 <p>Akan terdapat 3 digit sebagai angka unik untuk pengecekan. Nama pengirim harus sesuai dengan nama akun.<br/>Mohon untuk diperhatikan lebih baik karena kesalahan dapat diproses dalam waktu 24x7 jam.</p>
 </div><br/>
 <div class="row">

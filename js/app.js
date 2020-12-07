@@ -20,6 +20,10 @@ $(document).ready(function(){
 	$("#agreement").change(function(){
 		check_daftar();
 	});
+	$("#deposit-page").click(function(){
+		$('#main-content').load('page/deposit.html');
+
+	});
 	$("#daftarakun").click(function(){
 		if ($("#password").val() !== $("#repassword").val()){
 			alert("Gagal Daftar. Password tidak sama");

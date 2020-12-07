@@ -1,6 +1,9 @@
 <?php
 include 'lib/koneksi.php';
 session_start();
+if (!empty($_SESSION['email'])){
+	header('location: dashboard.php');
+}
 ?>
 <html>
 <head>
