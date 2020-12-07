@@ -1,7 +1,5 @@
-var dateskrg = new Date();
 var p = document.getElementById("password");
 var rp = document.getElementById("repassword");
-document.getElementById("tgllahir").value = dateskrg.getFullYear()+"-"+dateskrg.getMonth()+"-"+dateskrg.getDate();
 var check = function(){
 				var oke = false;
 				if (p.value === "" || rp.value === ""){
@@ -28,20 +26,12 @@ var check = function(){
 					}
 				}
 				if (oke){
-					document.getElementById("daftarakun").disabled=false;
+					$("#daftarakun").prop('disabled', false);
 				}else{
-					document.getElementById("daftarakun").disabled=true;
+					$("#daftarakun").prop('disabled', true);
 				}
 			}
-function login(){
-	if (document.getElementById("login-email").value == "user@user.com" && document.getElementById("login-pass").value == "a12345"){
-		alert("Username atau password bener");
-		window.location = "dashboard.html";
-	}else{
-		alert("Username atau password salah");
-		console.log(document.getElementById("login-email").value);
-	}
-}
+
 function switchPage(p){
 	switch(p){
 		case "aset":

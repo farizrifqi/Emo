@@ -14,8 +14,8 @@
 		</div>
 		<div class="menu-right">
 			<ul>
-				<li ><a href="login.html">Login</a></li>
-				<li><a href="daftar.html">Daftar</a></li>
+				<li ><a href="login.php">Login</a></li>
+				<li><a href="daftar.php">Daftar</a></li>
 				<li><a href="#contact">Hubungi</a></li>
 				<li><a href="#header">Tentang</a></li>
 			</ul>

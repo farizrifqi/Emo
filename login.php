@@ -9,13 +9,13 @@
 </head>
 <body class="primary">
 	<div class="box">
-	
+	<form action="" method="POST">
 		<label for="email">Email</label><br/>
 		<input type="text" id="login-email" name="email" class="input-text" placeholder="Login email" required><br/><br/>
 		<label for="password">Password</label><br/>
 		<input type="password" id="login-pass" name="password" class="input-text" autocomplete="off" placeholder="Login password" required><br/></br>
-		<input type="submit" class="btn btn-masuk" onclick="login();" autocomplete="off" value="Login"/> 
-	
+		<input type="submit" class="btn btn-masuk" autocomplete="off" value="Login"/> 
+	</form>
 	<a href="#"><button class="btn btn-fp" value="Lupa password">Lupa password</button></a>
 	<p>Belum punya akun? <a href="daftar.html">Daftar</a> yuk!</p>
 	</div>
@@ -25,10 +25,10 @@
 			&copy; Copyright 2020&nbsp;<b>Emo</b>
 		</div>
 		<div class="column">
-			<a href="index.html">Homepage</a> | <a href="login.html">Login</a>
+			<a href="index.php">Homepage</a> | <a href="login.php">Login</a>
 		</div>
 	</div>
 	</footer>
-	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
 </body>
 </html>
