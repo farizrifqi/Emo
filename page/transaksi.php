@@ -1,10 +1,16 @@
+<?php
+session_start();
+include '../lib/koneksi.php';
+$getUserLogin = $con->query("SELECT * from user where email='".$_SESSION['email']."' LIMIT 1")->fetch_assoc();
+
+?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="../css/page.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<h1 class="page-title">• Transaksi</h1>
+<h1 class="page-title">• Riwayat Transaksi</h1>
 <br/>
-<h2>Riwayat transaksi anda:</h2>
+<h2>Riwayat deposit dan withdrawal:</h2>
 <table>
 	<tr>
 		<th>#</th>
@@ -13,40 +19,20 @@
 		<th>Jumlah</th>
 		<th>Waktu</th>
 	<tr/>
-	<tr>
-		<td>1</td>
-		<td>Deposit</td>
-		<td>via BCA</td>
-		<td>500000</td>
-		<td>11-08-2020</td>
-	<tr/>
-	<tr>
-		<td>2</td>
-		<td>Konversi ke emas</td>
-		<td>Otomatis</td>
-		<td>500000</td>
-		<td>11-08-2020</td>
-	<tr/>
-	<tr>
-		<td>3</td>
-		<td>Deposit</td>
-		<td>via BCA</td>
-		<td>1000000</td>
-		<td>13-08-2020</td>
-	<tr/>
-	<tr>
-		<td>4</td>
-		<td>Konversi ke emas</td>
-		<td>Otomatis</td>
-		<td>1000000</td>
-		<td>13-08-2020</td>
-	<tr/>
-	<tr>
-		<td>5</td>
-		<td>Penarikan</td>
-		<td>ke BCA</td>
-		<td>750000</td>
-		<td>11-09-2020</td>
-	<tr/>
+	<?php
+		$q = $con->query("SELECT * FROM transaksi where id_user='".$getUserLogin['id']."' ORDER BY time DESC");
+		$i = 1;
+		while ($r = $q->fetch_assoc()){
+			echo "<tr>";
+			echo "<td>".$i."</td>";
+			echo "<td>".$r['tipe']."</td>";
+			echo "<td>".$r['deskripsi']."</td>";
+			echo "<td>".number_format($r['jumlah'], 0, '.', '.')."</td>";
+			echo "<td>".$r['time']."</td>";
+			echo "</tr>";
+			$i++;
+		}
+	?>
 </table>
-
+<br/>
+<br/>

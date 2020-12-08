@@ -28,7 +28,7 @@ $getLoginHistory = $con->query("SELECT * from riwayat_login where id_user='".$ge
 			echo "<td>".$r['ip']."</td>";
 			echo "<td>".$r['ua']."</td>";
 			echo "<td>".$r['time']."</td>";
-			echo "<td><a href=\"\"><button class=\"btn\">Lapor</button></a></td>";
+			echo "<td><a href=\"\"><button class=\"btn\">Bukan saya</button></a></td>";
 			$i++;
 			echo "</tr>";
 		}
