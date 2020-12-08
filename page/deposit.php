@@ -31,14 +31,14 @@
 <div class="row">
 <div class="column">
 <h3>Yang harus dibayarkan sebesar:</h3>
-<h3>Rp</h3><h2 id="nom">1000000</h2><br/>
+<h3>Rp</h3><h2 id="nom">0</h2><br/>
 </div>
 <div class="column">
 <h3>Ke rekening:</h3>
 <h2>7135260801</h2> <h3>BCA</h3><br/>
 </div>
 </div>
-<button class="btn" style="background:white;color:black;">Konfirmasi Deposit</button>
+<button class="btn" id="konf" onclick="conf()" style="background:white;color:black;" disabled>Konfirmasi Deposit</button>
 </div>
 </div>
 </div>
@@ -46,6 +46,41 @@
 var unique=0;
 function generateU(){
 	unique = parseInt(document.getElementById("nominal").value)+Math.floor(Math.random() * (999 - 101) ) + 101;
+}
+function conf(){
+	if (document.getElementById("nominal").value === "" || document.getElementById("bpengirim").value === "" || document.getElementById("pengirim").value === ""){
+		if (document.getElementById("nominal").value === ""){
+			document.getElementById("nominal").style.border = "1px solid red";
+		}else{
+			document.getElementById("pengirim").style.border = "1px solid #bdc3c7";
+		}
+		if (document.getElementById("pengirim").value === ""){
+			document.getElementById("pengirim").style.border = "1px solid red";
+		}else{
+			document.getElementById("pengirim").style.border = "1px solid #bdc3c7";
+		}
+		if (document.getElementById("bpengirim").value === ""){
+			document.getElementById("bpengirim").style.border = "1px solid red";
+		}else{
+			document.getElementById("bpengirim").style.border = "1px solid #bdc3c7";
+		}
+	}else{
+		document.getElementById("pengirim").style.border = "1px solid #bdc3c7";
+		document.getElementById("nominal").style.border = "1px solid #bdc3c7";
+		document.getElementById("bpengirim").style.border = "1px solid #bdc3c7";
+		var xmlhttp = new XMLHttpRequest();
+		var url = "http://localhost/pabw/emo/api/api.php";
+
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var adata = JSON.parse(this.responseText);
+				console.log(adata.yoi);
+			}
+		};
+		xmlhttp.open("POST", url, true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send("t=deposit");
+	}
 }
 function nominal(){
 	if (document.getElementById("nominal").value >= 10000){
@@ -56,9 +91,11 @@ function nominal(){
 			document.getElementById("nom").innerHTML = unique;
 		}else{
 			document.getElementById("nom").innerHTML = document.getElementById("nominal").value;
+			document.getElementById("konf").disabled = false;
 		}
 		document.getElementById("nominal").style.border = "1px solid #bdc3c7";
 	}else{
+		document.getElementById("konf").disabled = true;
 		document.getElementById("nom").innerHTML = 0;
 		document.getElementById("nominal").style.border = "1px solid red";
 	}

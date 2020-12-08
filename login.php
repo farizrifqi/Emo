@@ -1,5 +1,6 @@
 <?php
 include 'lib/koneksi.php';
+include 'lib/function.php';
 session_start();
 if (!empty($_SESSION['email'])){
 	header('location: dashboard.php');
@@ -20,9 +21,10 @@ if (!empty($_SESSION['email'])){
 	if (isset($_POST['login'])){
 		if($con->query("SELECT * FROM user where email='".$_POST['email']."'")->num_rows > 0){
 			$get = $con->query("SELECT id, email, nama_depan, password FROM user where email='".$_POST['email']."' LIMIT 1")->fetch_assoc();
-			if ($get['password'] != $_POST['password']){
+			if ($get['password'] != encryptPw($_POST['password'])){
 				echo "<center><br/><font color=\"red\">Email atau password salah</font><br/><br/></center>";
 			}else{
+				$con->query("UPDATE user set last_login=CURRENT_TIMESTAMP where email='".$_POST['email']."'");
 				$_SESSION['email'] = $get['email'];
 				$_SESSION['namadepan'] = $get['nama_depan'];
 				$con->query("INSERT INTO riwayat_login (id_user, ua, ip) values ('".$get['id']."', '".$_SERVER['HTTP_USER_AGENT']."', '".$_SERVER['REMOTE_ADDR']."')");
