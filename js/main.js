@@ -15,6 +15,12 @@ function switchPage(p){
 		case "riwayat":
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/riwayat_login.php" ></object>';
 		break;
+		case "admin":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/beranda-admin.php" ></object>';
+		break;
+		case "deposit-admin":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/deposit-admin.php" ></object>';
+		break;
 		default:
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/beranda.php" ></object>';
 		break;

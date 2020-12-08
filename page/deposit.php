@@ -1,12 +1,18 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
+include '../lib/koneksi.php';
+session_start();
+$getUserLogin = $con->query("SELECT * from user where email='".$_SESSION['email']."' LIMIT 1")->fetch_assoc();
+
+?><meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="../css/page.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
 <h1 class="page-title">• Deposit</h1>
 <div class="widget">
-<u><b>Informasia:</b></u>
+<u><b>Informasi:</b></u>
 <p>Akan terdapat 3 digit sebagai angka unik untuk pengecekan. Nama pengirim harus sesuai dengan nama akun.<br/>Mohon untuk diperhatikan lebih baik karena kesalahan dapat diproses dalam waktu 24x7 jam.</p>
 </div><br/>
+<br/>
 <div class="row">
 <div class="column">
 <label for="nominal">Nominal</label><br/>
@@ -38,16 +44,18 @@
 <h2>7135260801</h2> <h3>BCA</h3><br/>
 </div>
 </div>
-<button class="btn" id="konf" onclick="conf()" style="background:white;color:black;" disabled>Konfirmasi Deposit</button>
+<button class="btn" id="konf" onclick="conf(<?= $getUserLogin['id']; ?>)" style="background:white;color:black;" disabled>Konfirmasi Deposit</button>
 </div>
 </div>
 </div>
+<br/>
+<b id="suc"></b>
 <script type="text/javascript">
 var unique=0;
 function generateU(){
 	unique = parseInt(document.getElementById("nominal").value)+Math.floor(Math.random() * (999 - 101) ) + 101;
 }
-function conf(){
+function conf(i){
 	if (document.getElementById("nominal").value === "" || document.getElementById("bpengirim").value === "" || document.getElementById("pengirim").value === ""){
 		if (document.getElementById("nominal").value === ""){
 			document.getElementById("nominal").style.border = "1px solid red";
@@ -68,18 +76,21 @@ function conf(){
 		document.getElementById("pengirim").style.border = "1px solid #bdc3c7";
 		document.getElementById("nominal").style.border = "1px solid #bdc3c7";
 		document.getElementById("bpengirim").style.border = "1px solid #bdc3c7";
+		
 		var xmlhttp = new XMLHttpRequest();
 		var url = "http://localhost/pabw/emo/api/api.php";
 
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var adata = JSON.parse(this.responseText);
-				console.log(adata.yoi);
+				if (adata.success){
+					 document.getElementById("suc").innerHTML = "&nbsp;Deposit berhasil, silahkan cek halaman riwayat transaksi.";
+				}
 			}
 		};
 		xmlhttp.open("POST", url, true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send("t=deposit");
+		xmlhttp.send("t=deposit&nom="+document.getElementById("nominal").value+"&idu="+i+"&via="+document.getElementById("tujuan").value);
 	}
 }
 function nominal(){

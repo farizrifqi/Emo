@@ -30,7 +30,35 @@ if (empty($_POST['t'])){
 				}
 		break;
 		case 'deposit':
-			$result = ["yoi" => "yoiiii"];
+			switch($_POST['via']){
+				case 1:
+				$via = "BCA VA";
+				break;
+				case 2:
+				$via = "BNI VA";
+				break;
+				case 3:
+				$via = "BRI VA";
+				break;
+				case 4:
+				$via = "BCA TRF";
+				break;
+				case 5:
+				$via = "BNI TRF";
+				break;
+				case 6:
+				$via = "BRI TRF";
+				break;
+				default:
+				break;
+			}
+			$v = "via ".$via;
+			$q = $con->query("INSERT INTO transaksi (id_user, tipe, deskripsi, jumlah, time) values ('".$_POST['idu']."', 'Deposit', '".$v."', '".$_POST['nom']."', CURRENT_TIMESTAMP)");
+			if ($q){
+				$result = ["success" => true];
+			}else{
+				$result = ["success" => false, "reason" => "unknown parameter"];
+			}
 		break;
 		default:
 			$result = ["success" => false, "reason" => "unknown parameter"];
