@@ -44,7 +44,7 @@ if (!empty($_SESSION['email'])){
 		<input type="submit" class="btn btn-masuk" name="login" autocomplete="off" value="Login"/> 
 	</form>
 	<a href="#"><button class="btn btn-fp" value="Lupa password">Lupa password</button></a>
-	<p>Belum punya akun? <a href="daftar.html">Daftar</a> yuk!</p>
+	<p>Belum punya akun? <a href="daftar.php">Daftar</a> yuk!</p>
 	</div>
 	<footer class="footer-login">
 	<div class="row">

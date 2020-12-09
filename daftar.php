@@ -46,7 +46,7 @@ if (!empty($_SESSION['email'])){
 			<input type="checkbox" id="agreement" name="agreement" value="1">
 			<label for="agreement"> Menyetujui ketentuan & persyaratan</label><br><br/>
 			<button class="daftar" id="daftarakun" value="Register" style="width:10%;padding:7px;" disabled>Daftar</button><br/>
-			<p>Sudah punya akun? <a href="login.html">Masuk</a> sekarang.</p>
+			<p>Sudah punya akun? <a href="login.php">Masuk</a> sekarang.</p>
 	</div>
 	<footer>
 	<div class="row">
@@ -54,7 +54,7 @@ if (!empty($_SESSION['email'])){
 			&copy; Copyright 2020&nbsp;<b>Emo</b>
 		</div>
 		<div class="column">
-			<a href="index.html">Homepage</a> | <a href="login.html">Login</a>
+			<a href="index.php">Homepage</a> | <a href="login.php">Login</a>
 		</div>
 	</div>
 	</footer>
