@@ -22,9 +22,9 @@ if ($getUserLogin['aset'] < 10000){
 }
 ?>
 <label for="bpengirim">Bank Penerima</label><br/>
-<input type="text" id="bpenerima" style="width:85%" onkeyup="wdrek();" class="input-text" placeholder="Masukkan nama bank"/><br/><br/>
+<input type="text" id="bpenerima" style="width:85%" onkeyup="wd();" class="input-text" placeholder="Masukkan nama bank"/><br/><br/>
 <label for="pengirim">Nomor Rekening Penerima</label><br/>
-<input type="number" id="penerima" style="width:85%" onkeyup="wdrek();" class="input-text" placeholder="Masukkan nomor rekening"/><br/><br/>
+<input type="number" id="penerima" style="width:85%" onkeyup="wd();" class="input-text" placeholder="Masukkan nomor rekening"/><br/><br/>
 </div>
 <div class="column">
 <br/><br/>
@@ -127,18 +127,18 @@ function berat(){
 	}
 }
 function wdrek(i){
-	if (document.getElementById("nominal").value() === "" || document.getElementById("penerima").value() === "" || document.getElementById("bpenerima").value() === ""){
-		if (document.getElementById("nominal").value() === ""){
+	if (document.getElementById("nominal").value === "" || document.getElementById("penerima").value === "" || document.getElementById("bpenerima").value === ""){
+		if (document.getElementById("nominal").value === ""){
 			document.getElementById("nominal").style.border = "1px solid red";
 		}else{
 			document.getElementById("nominal").style.border = "1px solid #bdc3c7";
 		}
-		if (document.getElementById("penerima").value() === ""){
+		if (document.getElementById("penerima").value === ""){
 			document.getElementById("penerima").style.border = "1px solid red";
 		}else{
 			document.getElementById("penerima").style.border = "1px solid #bdc3c7";
 		}
-		if (document.getElementById("bpenerima").value() === ""){
+		if (document.getElementById("bpenerima").value === ""){
 			document.getElementById("bpenerima").style.border = "1px solid red";
 		}else{
 			document.getElementById("bpenerima").style.border = "1px solid #bdc3c7";
@@ -156,7 +156,7 @@ function wdrek(i){
 		};
 		xmlhttp.open("POST", url, true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send("t=wd&t2=rek&nom="+document.getElementById("nominal").value+"&idu="+i+"&bp="+document.getElementById("bpenerima").value+"&p="+document.getElementById("penerima").value);
+		xmlhttp.send("t=wd&nom="+document.getElementById("nominal").value+"&idu="+i+"&bp="+document.getElementById("bpenerima").value+"&p="+document.getElementById("penerima").value);
 	}
 }
 function wdfisik(i){
