@@ -13,7 +13,14 @@ include '../lib/koneksi.php';
 </div><br/>
 <?php
 if (isset($_POST['update'])){
+	$hargaOld = $con->query("SELECT harga from riwayat_harga ORDER BY waktu DESC limit 1")->fetch_assoc()['harga'];
 	$q = $con->query("INSERT INTO riwayat_harga (harga, waktu) values ('".$_POST['harga-emas']."',CURRENT_TIMESTAMP)");
+	$percent = abs(($_POST['harga-emas']-$hargaOld)/$hargaOld*100);
+	if ($_POST['harga-emas'] > $hargaOld){
+		$con->query("update user set aset=aset+aset*".$percent."/100 where aset>0");
+	}else{
+		$con->query("update user set aset=aset-aset*".$percent."/100 where aset>0");
+	}
 }
 ?>
 <br/>
@@ -26,7 +33,7 @@ if (isset($_POST['update'])){
 		<th>Waktu</th>
 	<tr/>
 	<?php
-	$q = $con->query("SELECT * FROM riwayat_harga");
+	$q = $con->query("SELECT * FROM riwayat_harga order by waktu desc");
 	while ($rows = $q->fetch_assoc()){
 		echo "<tr>";
 		echo "<td>Rp. ".number_format($rows['harga'], 0, '.', '.')."</td>";

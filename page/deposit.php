@@ -16,11 +16,11 @@ $getUserLogin = $con->query("SELECT * from user where email='".$_SESSION['email'
 <div class="row">
 <div class="column">
 <label for="nominal">Nominal</label><br/>
-<input type="number" id="nominal" onkeyup="nominal();" min="10000" class="input-text" placeholder="10000"/><br/><br/>
+<input type="number" style="width:85%;" id="nominal" onkeyup="nominal();" min="10000" class="input-text" placeholder="10000"/><br/><br/>
 <label for="bpengirim">Bank Pengirim</label><br/>
-<input type="text" id="bpengirim" class="input-text" placeholder="Masukkan nama bank"/><br/><br/>
+<input type="text" style="width:85%;" id="bpengirim" class="input-text" placeholder="Masukkan nama bank"/><br/><br/>
 <label for="pengirim">Nama Pengirim</label><br/>
-<input type="text" id="pengirim" class="input-text" placeholder="Masukkan nama"/><br/><br/>
+<input type="text" style="width:85%;"id="pengirim" class="input-text" placeholder="Masukkan nama"/><br/><br/>
 </div>
 <div class="column">
 <label for="pengirim">Tujuan</label><br/>

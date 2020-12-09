@@ -55,9 +55,35 @@ if (empty($_POST['t'])){
 			$v = "via ".$via;
 			$q = $con->query("INSERT INTO transaksi (id_user, tipe, deskripsi, jumlah, time) values ('".$_POST['idu']."', 'Deposit', '".$v."', '".$_POST['nom']."', CURRENT_TIMESTAMP)");
 			if ($q){
+				$aset = $con->query("SELECT aset FROM user where id='".$_POST['idu']."'")->fetch_assoc()['aset']+$_POST['nom'];
+				$con->query("UPDATE user set aset='".$aset."' where id='".$_POST['idu']."'");
 				$result = ["success" => true];
 			}else{
 				$result = ["success" => false, "reason" => "unknown parameter"];
+			}
+		break;
+		case 'wd':
+			if(empty($_POST['t2'])){
+				$v = "ke ".$_POST['bp']." ".$_POST['p'];
+				$q = $con->query("INSERT INTO transaksi (id_user, tipe, deskripsi, jumlah, time) values ('".$_POST['idu']."', 'Withdraw (Rupiah)', '".$v."', '".$_POST['nom']."', CURRENT_TIMESTAMP)");
+				if ($q){
+					$aset = $con->query("SELECT aset FROM user where id='".$_POST['idu']."'")->fetch_assoc()['aset']-$_POST['nom'];
+					$con->query("UPDATE user set aset='".$aset."' where id='".$_POST['idu']."'");
+					$result = ["success" => true];
+				}else{
+					$result = ["success" => false, "reason" => "unknown parameter"];
+				}
+			}else{
+				$v = "Penerima: ".$_POST['p']." Lokasi: ".$_POST['l'];
+				$nom = $con->query("SELECT harga from riwayat_harga ORDER BY waktu DESC limit 1")->fetch_assoc()['harga']*$_POST['nom'];
+				$q = $con->query("INSERT INTO transaksi (id_user, tipe, deskripsi, jumlah, time) values ('".$_POST['idu']."', 'Withdraw (Fisik)', '".$v."', '".$nom."', CURRENT_TIMESTAMP)");
+				if ($q){
+					$aset = $con->query("SELECT aset FROM user where id='".$_POST['idu']."'")->fetch_assoc()['aset']-$nom;
+					$con->query("UPDATE user set aset='".$aset."' where id='".$_POST['idu']."'");
+					$result = ["success" => true];
+				}else{
+					$result = ["success" => false, "reason" => "unknown parameter"];
+				}
 			}
 		break;
 		default:
