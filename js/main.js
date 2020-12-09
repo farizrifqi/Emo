@@ -26,6 +26,9 @@ function switchPage(p){
 		case "deposit-admin":
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/deposit-admin.php" ></object>';
 		break;
+		case "bantuan":
+			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/bantuan.php" ></object>';
+		break;
 		default:
 			document.getElementById("main-content").innerHTML='<object type="text/html" width="100%" height="100%" data="page/beranda.php" ></object>';
 			document.title = "Dashboard - Emo";

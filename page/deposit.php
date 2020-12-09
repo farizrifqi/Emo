@@ -78,7 +78,7 @@ function conf(i){
 		document.getElementById("bpengirim").style.border = "1px solid #bdc3c7";
 		
 		var xmlhttp = new XMLHttpRequest();
-		var url = "http://localhost/pabw/emo/api/api.php";
+		var url = "../api/api.php";
 
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {

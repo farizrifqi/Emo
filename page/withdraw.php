@@ -145,7 +145,7 @@ function wdrek(i){
 		}
 	}else{
 		var xmlhttp = new XMLHttpRequest();
-		var url = "http://localhost/pabw/emo/api/api.php";
+		var url = "../api/api.php";
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var data = JSON.parse(this.responseText);
@@ -165,7 +165,7 @@ function wdfisik(i){
 	}else{
 		document.getElementById("nmpenerima").style.border = "1px solid #bdc3c7";
 		var xmlhttp = new XMLHttpRequest();
-		var url = "http://localhost/pabw/emo/api/api.php";
+		var url = "../api/api.php";
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var data = JSON.parse(this.responseText);

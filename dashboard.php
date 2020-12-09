@@ -24,7 +24,7 @@ if (empty($_SESSION['email'])){
 		<a href="#" onclick="switchPage('aset')">Aset</a>
 		<a href="#" onclick="switchPage('transaksi');">Transaksi</a>
 		<a href="#" onclick="switchPage('riwayat');">Riwayat Login</a>
-		<a href="#">Help</a>
+		<a href="#" onclick="switchPage('bantuan');">Help</a>
 		<a href="logout.php"><b>Logout</b></a>
 	</div>
 	<div class="main" id="main-content">
